@@ -16,6 +16,7 @@ SnapKit
 - Write safe code, leave no possibility of crashes (correct optionals, array indices handling etc.)
 - Use “nice” naming (common readability, self-documenting code)
 - Make the UI look and feel good for all the screen sizes including iPads
+- Add the images caching and reuse them from cache (don’t download any image twice)
 
 ### Note
 В шапках файла вы можете увидеть коммент:
