@@ -18,3 +18,9 @@ SnapKit
 
 ## Запись работы приложения
 https://drive.google.com/file/d/1k93y3DVQgLxlMsJRGlISMabJgOOsrMdP/view?usp=share_link
+
+### Note
+В шапках файла вы можете увидеть коммент:
+//  Created by Dmitry Serebrov on 14.05.2023.
+
+Это потому что я использую ноутбук мужа. Весь код я писала сама.
