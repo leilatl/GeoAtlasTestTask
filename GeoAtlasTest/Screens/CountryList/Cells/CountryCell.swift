@@ -93,7 +93,9 @@ extension CountryCell {
 	/// функция для обновления свернутой ячейки
 	func updateCollapsed(viewModel: CountryListModel.ViewModel.CountryViewModel) {
 		// обновление внешнего вида картинки флага
-		flagImageView.sd_setImage(with: URL(string: viewModel.flag))
+		let placeholderImage = UIImageView()
+		placeholderImage.backgroundColor = UIColor.systemRed
+		flagImageView.sd_setImage(with: URL(string: viewModel.flag), placeholderImage: placeholderImage.image, options: [.waitStoreCache])
 		flagImageView.layer.cornerRadius = UIDigits.imgCornerRadius
 		flagImageView.layer.masksToBounds = true
 		

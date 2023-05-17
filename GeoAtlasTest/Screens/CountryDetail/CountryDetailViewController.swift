@@ -61,7 +61,9 @@ extension CountryDetailViewController: ICountryDetailViewController {
 		
 		// создание картинки флага
 		let flagImageView = UIImageView()
-		flagImageView.sd_setImage(with: URL(string: viewModel.flag))
+		let placeholderImage = UIImageView()
+		placeholderImage.backgroundColor = UIColor.systemRed
+		flagImageView.sd_setImage(with: URL(string: viewModel.flag), placeholderImage: placeholderImage.image, options: [.waitStoreCache])
 		flagImageView.layer.cornerRadius = UIDigits.imgCornerRadius
 		flagImageView.layer.masksToBounds = true
 		flagImageView.contentMode = .scaleAspectFill
