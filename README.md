@@ -19,8 +19,8 @@ SnapKit
 
 ## Запись работы приложения
 https://drive.google.com/file/d/1k93y3DVQgLxlMsJRGlISMabJgOOsrMdP/view?usp=share_link
-![image](https://github.com/leilatl/GeoAtlasTestTask/assets/46998891/840257e4-e689-4203-a796-aed075c6899c)
-![image](https://github.com/leilatl/GeoAtlasTestTask/assets/46998891/7e3df8b3-13fa-4867-b3fb-d83885c9c2af)
+![image](https://github.com/leilatl/GeoAtlasTestTask/assets/46998891/840257e4-e689-4203-a796-aed075c6899c) ![image](https://github.com/leilatl/GeoAtlasTestTask/assets/46998891/7e3df8b3-13fa-4867-b3fb-d83885c9c2af)
+
 
 
 ### Note
