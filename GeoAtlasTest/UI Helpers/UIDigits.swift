@@ -23,7 +23,7 @@ struct UIDigits {
 	static let cellFlagImageHeight: CGFloat = 48
 	static let cellCountryCityInset: CGFloat = 6
 	
-	static let detailImgHeight: CGFloat = 193
+	static let detailImgHeightRatio: CGFloat = 2
 	static let detailDotSize: CGFloat = 8
 	static let detailDotTopInset: CGFloat = 10
 	static let detailTitleFontSize: CGFloat = 15

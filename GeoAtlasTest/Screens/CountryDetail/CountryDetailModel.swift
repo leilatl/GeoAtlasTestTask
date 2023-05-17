@@ -13,7 +13,7 @@ enum CountryDetailModel {
 		struct CountryDetailData: Decodable {
 			let flags: FlagImg
 			let name: Name
-			let subregion: String
+			let subregion: String?
 			let capital: [String]?
 			let capitalInfo: CapitalInfo?
 			let population: Int

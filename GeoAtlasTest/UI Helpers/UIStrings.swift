@@ -11,6 +11,7 @@ struct UIStrings {
 	static let countryDetailHttp = "https://restcountries.com/v3.1/alpha/"
 	
 	static let unknownError = "Unknown Error"
+	static let unknownRegion = "Unknown Region"
 	static let unknownCapital = "Unknown Capital"
 	static let initError = "init(coder:) has not been implemented"
 	

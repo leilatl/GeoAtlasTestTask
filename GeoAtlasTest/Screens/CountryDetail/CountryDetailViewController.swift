@@ -67,7 +67,7 @@ extension CountryDetailViewController: ICountryDetailViewController {
 		flagImageView.contentMode = .scaleAspectFill
 		stackView.addArrangedSubview(flagImageView)
 		flagImageView.snp.makeConstraints { maker in
-			maker.height.equalTo(UIDigits.detailImgHeight)
+			maker.height.equalTo(view.frame.width / UIDigits.detailImgHeightRatio)
 			maker.left.equalToSuperview()
 			maker.right.equalToSuperview()
 		}

@@ -28,7 +28,7 @@ class CountryDetailInteractor: ICountryDetailInteractor {
 												  area: data[0].area,
 												  currencies: self.transformCurrenciesToString(currencies: data[0].currencies),
 												  timezones: data[0].timezones,
-												  region: data[0].subregion)
+												  region: data[0].subregion ?? UIStrings.unknownRegion)
 			self.presenter.presentDetails(response: newData)
 		}
 	}

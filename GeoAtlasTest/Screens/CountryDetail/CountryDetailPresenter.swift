@@ -86,17 +86,25 @@ extension CountryDetailPresenter {
 	/// функция, которая преобразует координаты столицы из модели в строку для оторажения на экране
 	private func transformCoordinates(dataCoordinates: [Float]) -> String {
 		var stringCoordinates = ""
-		
 		if dataCoordinates.count > 1 {
 			for coordinate in dataCoordinates {
 				
 				let integer = floor(coordinate)
 				let decimal = coordinate.truncatingRemainder(dividingBy: 1)
+				let stringDecimal = String(format: "%.2f", decimal)
 				
-				let stringDecimal = String(decimal)
 				let startIndex = stringDecimal.index(stringDecimal.startIndex, offsetBy: 2)
-				let endIndex = stringDecimal.index(stringDecimal.startIndex, offsetBy: 4)
-				let substring = stringDecimal[startIndex..<endIndex]
+				var substring = Substring()
+				if stringDecimal.count == 5 {
+					let endIndex = stringDecimal.index(stringDecimal.startIndex, offsetBy: 5)
+					substring = stringDecimal[startIndex..<endIndex]
+				} else if stringDecimal.count == 4 {
+					let endIndex = stringDecimal.index(stringDecimal.startIndex, offsetBy: 4)
+					substring = stringDecimal[startIndex..<endIndex]
+				} else {
+					let endIndex = stringDecimal.index(stringDecimal.startIndex, offsetBy: 3)
+					substring = stringDecimal[startIndex..<endIndex]
+				}
 				
 				stringCoordinates += String("\(Int(integer))°\(substring)′, ")
 			}
