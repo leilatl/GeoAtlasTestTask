@@ -23,7 +23,7 @@ class CountryCell: UITableViewCell {
 	let currencyPlaceholder = UILabel()
 
 	/// ячейка хранит view controller, который нужен для навигации через кнопку, которая находится в ячейке
-	var vc: CountryListViewController?
+	var viewController: CountryListViewController?
 	/// вью модель, которая содержит всю необходимую информацию для отображния в ячейке
 	var viewModel: CountryListModel.ViewModel.CountryViewModel?
 	
@@ -118,8 +118,8 @@ extension CountryCell {
 	}
 	
 	/// функция для обновления развернутой ячейки
-	func updateExpanded(viewModel: CountryListModel.ViewModel.CountryViewModel, vc: CountryListViewController) {
-		self.vc = vc
+	func updateExpanded(viewModel: CountryListModel.ViewModel.CountryViewModel, viewController: CountryListViewController) {
+		self.viewController = viewController
 		updateCollapsed(viewModel: viewModel)
 		
 		// делаем видимыми все элементы развернутой ячейки
@@ -143,7 +143,7 @@ extension CountryCell {
 		learnMoreBtn.setTitle(UIStrings.learnMoreBtnText, for: .normal)
 		learnMoreBtn.setTitleColor(UIColors.blueText, for: .normal)
 		
-		//обновление разметки
+		// обновление разметки
 		backgroundGreyView.addSubview(populationLabel)
 		backgroundGreyView.addSubview(areaLabel)
 		backgroundGreyView.addSubview(currencyPlaceholder)
@@ -181,9 +181,9 @@ extension CountryCell {
 	}
 	/// кнопка, которая осуществляет переход на следующий экран
 	@objc func learnMoreBtnTapped(_ sender: UIButton) {
-		if let vc {
+		if let viewController {
 			let router = MainRouter()
-			router.routeToDetailsViewController(vc: vc, cca2: viewModel?.cca2 ?? "")
+			router.routeToDetailsViewController(vc: viewController, cca2: viewModel?.cca2 ?? "")
 		}
 
 	}

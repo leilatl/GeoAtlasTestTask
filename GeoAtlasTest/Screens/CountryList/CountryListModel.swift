@@ -19,11 +19,10 @@ enum CountryListModel {
 				let capital: [String]?
 				let population: Int
 				let flags: FlagImg
-				let currencies: [String:CurrencyValue]?
+				let currencies: [String: CurrencyValue]?
 				let continents: [String]
 				let area: Float
 				let cca2: String
-				
 			}
 		}
 		
@@ -37,12 +36,11 @@ enum CountryListModel {
 			public let name: String
 			public let symbol: String?
 		}
-		
-		
 	}
+	
 	/// модель, описывающая данные для работы внутренней логики
 	struct Data {
-		var continents: [String:[Country]]
+		var continents: [String: [Country]]
 		
 		struct Country {
 			let image: String
@@ -50,7 +48,7 @@ enum CountryListModel {
 			let capital: [String]?
 			let population: Int
 			let area: Float
-			let currencies: [String:CountryListModel.NetworkingData.CurrencyValue]?
+			let currencies: [String: CountryListModel.NetworkingData.CurrencyValue]?
 			let cca2: String
 		}
 	}

@@ -56,12 +56,12 @@ class CountryListPresenter: ICountryListPresenter {
 /// расширение для приватных функций
 extension CountryListPresenter {
 	/// функция, которая преобразует валюты из модели в строку для оторажения на экране
-	private func transformCurrencies(dataCurrency: [String:CountryListModel.NetworkingData.CurrencyValue]?) -> String {
+	private func transformCurrencies(dataCurrency: [String: CountryListModel.NetworkingData.CurrencyValue]?) -> String {
 		var currencyString = ""
 		// проверка наличия модели
 		if let dataCurrency {
 			// если в массиве только 1 валюта, то мы отображем название, символ и код
-			if dataCurrency.count == 1{
+			if dataCurrency.count == 1 {
 				currencyString = "\(dataCurrency.first?.value.name ?? "") (\(dataCurrency.first?.value.symbol ?? "")) (\(dataCurrency.first?.key ?? ""))"
 				// если в массиве 2 или больше валют, то мы перечисляем их через запятую
 			} else if dataCurrency.count > 1 {
@@ -70,34 +70,34 @@ extension CountryListPresenter {
 				}
 				currencyString = String(currencyString.dropLast(2))
 			}
-			
 		}
 		return currencyString
 	}
 	/// функция, которая преобразует население из модели в строку для оторажения на экране
 	private func transformPopulation(dataPopulation: Int) -> NSMutableAttributedString {
-		var populationStr = NSMutableAttributedString()
+		var populationStr = String(dataPopulation)
+		
 		// если население страны больше миллиона, то мы отображаем только количество миллионов
 		if dataPopulation >= 1000000 {
-			populationStr = NSMutableAttributedString(string: "\(Int(dataPopulation/1000000)) mln")
+			populationStr = "\(Int(dataPopulation/1000000)) mln"
 			// если население страны меньше миллиона, но больше тысячи, то мы отображаем население в формате: 100 000
 		} else if dataPopulation < 1000000 && dataPopulation > 1000 {
-			var populationStrThousand = String(dataPopulation)
-			populationStrThousand.insert(contentsOf: " ", at: populationStrThousand.index(populationStrThousand.endIndex, offsetBy: -3))
-			populationStr = NSMutableAttributedString(string: "\(dataPopulation)")
+			
+			populationStr.insert(contentsOf: " ", at: populationStr.index(populationStr.endIndex, offsetBy: -3))
 			// если население страны меньше тысячи, но больше тысячи, то мы не меняем строку
 		} else {
-			populationStr = NSMutableAttributedString(string: "Population: \(populationStr)")
+			populationStr = "\(dataPopulation)"
 		}
+		var attrStrPopulation = NSMutableAttributedString(string: populationStr)
+		attrStrPopulation = NSMutableAttributedString(string: "Population: \(populationStr)")
+		attrStrPopulation.addAttribute(.foregroundColor, value: UIColors.greyText ?? UIColor.gray, range: NSRange(location: 0, length: 11))
 		
-		populationStr.addAttribute(.foregroundColor, value: UIColors.greyText ?? UIColor.gray, range: NSRange(location: 0, length: 11))
-		return populationStr
+		return attrStrPopulation
 	}
 	
 	/// функция, которая преобразует площадь из модели в строку для оторажения на экране
 	private func transformArea(dataArea: Float) -> NSMutableAttributedString {
 		let intArea = Int(dataArea)
-		print(intArea)
 		var stringArea = String(intArea)
 		
 		// если площадь страны меньше миллиона, но больше тысячи, то мы отображаем площадь в формате: 100 000

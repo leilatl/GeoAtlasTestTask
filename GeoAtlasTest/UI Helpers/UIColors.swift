@@ -14,4 +14,3 @@ struct UIColors {
 	static let blueText = UIColor(named: "Blue")
 	static let arrowImage = UIImage(named: "Arrow")
 }
- 

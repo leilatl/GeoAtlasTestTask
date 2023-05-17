@@ -4,7 +4,6 @@
 //
 //  Created by Dmitry Serebrov on 14.05.2023.
 //
- 
 import Foundation
 /// протокол описывающий класс CountryDetailPresenter, им будет пользоваться Interactor для передачи данных
 protocol ICountryDetailPresenter {
@@ -48,7 +47,7 @@ extension CountryDetailPresenter {
 	}
 	
 	/// функция, которая преобразует валюты из модели в строку для оторажения на экране
-	private func transformCurrency(dataCurrency: [String]) -> String{
+	private func transformCurrency(dataCurrency: [String]) -> String {
 		var currencyString = ""
 		for currency in dataCurrency {
 			currencyString += "\(currency)\n"
@@ -88,7 +87,7 @@ extension CountryDetailPresenter {
 	private func transformCoordinates(dataCoordinates: [Float]) -> String {
 		var stringCoordinates = ""
 		
-		if dataCoordinates.count > 1{
+		if dataCoordinates.count > 1 {
 			for coordinate in dataCoordinates {
 				
 				let integer = floor(coordinate)

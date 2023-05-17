@@ -26,7 +26,7 @@ class CountryDetailInteractor: ICountryDetailInteractor {
 												  coordinates: data[0].capitalInfo?.latlng ?? [0],
 												  population: data[0].population,
 												  area: data[0].area,
-												  currencies: self.transformCurrenciesToString(currencies: data[0].currencies) ,
+												  currencies: self.transformCurrenciesToString(currencies: data[0].currencies),
 												  timezones: data[0].timezones,
 												  region: data[0].subregion)
 			self.presenter.presentDetails(response: newData)
@@ -41,9 +41,9 @@ class CountryDetailInteractor: ICountryDetailInteractor {
 /// расширение для приватных функций
 extension CountryDetailInteractor {
 	/// функция для приведения валют в массив строк для дальнейшей работы
-	private func transformCurrenciesToString(currencies: [String : CountryDetailModel.NetworkingData.CurrencyValue]?) -> [String] {
+	private func transformCurrenciesToString(currencies: [String: CountryDetailModel.NetworkingData.CurrencyValue]?) -> [String] {
 		var currenciesString = [String]()
-		if let currencies{
+		if let currencies {
 			for currency in currencies {
 				currenciesString.append("\(currency.value.name) (\(currency.value.symbol ?? "")) (\(currency.key))")
 			}

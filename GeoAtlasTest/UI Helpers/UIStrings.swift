@@ -23,4 +23,3 @@ struct UIStrings {
 	static let detailLabels = ["Region:", "Capital:", "Coordinates:", "Area:", "Population:", "Currencies:", "Timezones:" ]
 	static let detailDefaultLabel = "Country Detail"
 }
- 

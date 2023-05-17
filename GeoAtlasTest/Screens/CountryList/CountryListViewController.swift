@@ -21,7 +21,7 @@ class CountryListViewController: UIViewController {
 	/// основная таблица для отображения данных
 	let tableView = UITableView()
 	/// индекс выбраной ячейки. выбранная ячейка отличается внешним видом от остальных ячеек
-	var selectedIndexPath: IndexPath? = nil
+	var selectedIndexPath: IndexPath?
 	/// интерактор для вызова запроса данных
 	var interactor: ICountryListInteractor
 	
@@ -34,7 +34,6 @@ class CountryListViewController: UIViewController {
 	required init?(coder: NSCoder) {
 		fatalError(UIStrings.initError)
 	}
-	
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -105,7 +104,6 @@ extension CountryListViewController: UITableViewDelegate, UITableViewDataSource 
 			tableView.reloadRows(at: [previousIndexPath], with: .automatic)
 		}
 	}
-	
 }
 
 /// расширение для протокола ICountryListViewController, для пользования Presenter
@@ -115,7 +113,6 @@ extension CountryListViewController: ICountryListViewController {
 		self.viewModel = viewModel
 		tableView.reloadData()
 	}
-	
 }
 
 /// расширение для приватных функций
@@ -125,7 +122,7 @@ extension CountryListViewController {
 		// у нас есть 2 разных ситуации
 		if ip == selectedIndexPath {
 			// 1 ситуация - наша ячейка выбранная. передаем view controller для дальнейшей навигации
-			cell.updateExpanded(viewModel: viewModel.continents[ip.section].countries[ip.row], vc: self)
+			cell.updateExpanded(viewModel: viewModel.continents[ip.section].countries[ip.row], viewController: self)
 		} else {
 			// 2 ситуация - наша ячейка не выбранная(
 			cell.updateCollapsed(viewModel: viewModel.continents[ip.section].countries[ip.row])

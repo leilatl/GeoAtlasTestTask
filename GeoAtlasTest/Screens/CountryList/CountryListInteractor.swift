@@ -20,7 +20,7 @@ class CountryListInteractor: ICountryListInteractor {
 	
 	/// функция, которая получает данные из сети, обрабатывает их для дальнейшей работы и отправляет в презентер
 	func getCountries() {
-		worker.fetchAllCountries{ dataCountries in
+		worker.fetchAllCountries { dataCountries in
 			// создаем пустой массив данных
 			var continentsData = CountryListModel.Data(continents: [:])
 			
@@ -40,7 +40,6 @@ class CountryListInteractor: ICountryListInteractor {
 						continentsData.continents[continentKey] = [newCountry]
 					}
 				}
-				
 			}
 			// передаем данные дальше презентеру
 			self.presenter.presentCountries(response: continentsData)

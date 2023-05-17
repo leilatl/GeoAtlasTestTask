@@ -3,8 +3,7 @@
 //  GeoAtlasTest
 //
 //  Created by Dmitry Serebrov on 14.05.2023.
-//
- 
+
 import Foundation
 
 /// модель, описывающая данные для работы экрана Country Detail
@@ -19,7 +18,7 @@ enum CountryDetailModel {
 			let capitalInfo: CapitalInfo?
 			let population: Int
 			let area: Float
-			let currencies: [String:CurrencyValue]?
+			let currencies: [String: CurrencyValue]?
 			let timezones: [String]
 		}
 		
